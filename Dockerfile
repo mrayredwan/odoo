@@ -12,14 +12,15 @@ RUN useradd -m -d /opt/odoo -s /bin/bash odoo
 
 WORKDIR /app
 
-# نسخ الملفات وتغيير الملكية
+# نسخ ملف المتطلبات وتثبيته كـ root (أسرع)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
-RUN chown -R odoo:odoo /app
+# --- التعديل الجوهري هنا ---
+# نسخ الملفات وتغيير الملكية في نفس اللحظة
+COPY --chown=odoo:odoo . .
 
-# الانتقال للمستخدم العادي (للأمان)
+# الانتقال للمستخدم العادي
 USER odoo
 
 EXPOSE 8069
