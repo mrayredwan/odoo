@@ -4,7 +4,7 @@ FROM odoo-base:latest
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential python3-dev libldap2-dev libsasl2-dev libssl-dev libxml2-dev libxslt1-dev zlib1g-dev libjpeg-dev libpq-dev libffi-dev curl fonts-dejavu libxrender1 libxext6 libfontconfig1 xfonts-75dpi xfonts-base && wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_amd64.deb && apt install -y ./wkhtmltox_0.12.6.1-3.bookworm_amd64.deb && rm -f wkhtmltox_0.12.6.1-3.bookworm_amd64.deb && rm -rf /var/lib/apt/lists/*
 
 # Create Odoo user
-RUN useradd -m -d /opt/odoo -s /bin/bash odoo
+#RUN useradd -m -d /opt/odoo -s /bin/bash odoo
 
 WORKDIR /app
 
