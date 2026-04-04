@@ -1,7 +1,7 @@
 FROM python:3.12-slim-bookworm
 
-# Install system dependencies (including wkhtmltopdf for PDF reports)
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential python3-dev libldap2-dev libsasl2-dev libssl-dev libxml2-dev libxslt1-dev zlib1g-dev libjpeg-dev libpq-dev libffi-dev curl wkhtmltopdf fonts-dejavu libxrender1 libxext6 libfontconfig1 xfonts-75dpi xfonts-base && rm -rf /var/lib/apt/lists/*
+# Install system dependencies + official patched wkhtmltopdf
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential python3-dev libldap2-dev libsasl2-dev libssl-dev libxml2-dev libxslt1-dev zlib1g-dev libjpeg-dev libpq-dev libffi-dev curl fonts-dejavu libxrender1 libxext6 libfontconfig1 xfonts-75dpi xfonts-base && wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_amd64.deb && apt install -y ./wkhtmltox_0.12.6.1-3.bookworm_amd64.deb && rm -f wkhtmltox_0.12.6.1-3.bookworm_amd64.deb && rm -rf /var/lib/apt/lists/*
 
 # Create Odoo user
 RUN useradd -m -d /opt/odoo -s /bin/bash odoo
