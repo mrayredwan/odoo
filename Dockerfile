@@ -1,4 +1,4 @@
-FROM odoo-base:latest
+FROM mrayredwan/odoo-base:latest
 
 USER odoo
 
