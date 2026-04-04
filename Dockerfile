@@ -1,4 +1,4 @@
-FROM mrayredwan/odoo-base:latest
+FROM mrayredwan/odoo-base
 
 WORKDIR /app
 
