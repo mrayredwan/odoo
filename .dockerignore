@@ -3,24 +3,17 @@
 
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
 
 node_modules/
 .cache/
+
 *.log
 
 .env
-.env.*
 
-dist/
-build/
+data/
+db_data/
+backups/
 
 *.zip
 *.tar.gz
-
-db_data/
-data/
-backups/
-
-odoo.conf
