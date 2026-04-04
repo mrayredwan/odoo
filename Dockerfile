@@ -2,10 +2,8 @@ FROM mrayredwan/odoo-base:latest
 
 WORKDIR /app
 
+# Copy project files
 COPY --chown=odoo:odoo . .
-
-# 👇 هذا هو الحل
-RUN pip install --no-cache-dir -r requirements.txt
 
 USER odoo
 
